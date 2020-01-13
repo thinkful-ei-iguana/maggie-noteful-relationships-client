@@ -21,7 +21,7 @@ export default class NoteView extends React.Component {
   };
 
   renderNote = (note) => {
-    return (<div>
+    return (<div className="individ-note">
       <h2>{this.props.location.state.note_name}</h2>
       <p>{this.props.location.state.content}</p>
       <p>{this.props.location.state.date_modified}</p>
@@ -34,9 +34,6 @@ export default class NoteView extends React.Component {
     return (
       <div id="wrapper">
         <section>
-          <button onClick={() => this.props.history.goBack()}>Back</button>
-        </section>
-        <main>
           {this.renderNote()}
           <button
             id={this.props.match.params.noteId}
@@ -49,7 +46,9 @@ export default class NoteView extends React.Component {
           >
             Delete
             </button>
-        </main>
+          <br />
+          <button onClick={() => this.props.history.goBack()}>Back</button>
+        </section>
       </div>
     );
   }

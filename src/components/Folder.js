@@ -32,7 +32,6 @@ export default class Folder extends Component {
             id={this.props.match.params.noteId}
             onClick={(event) => {
               event.preventDefault();
-              console.log('e.target is', event.target)
               this.context.deleteFolder(this.props.id);
               this.props.history.push("/");
             }}

@@ -63,8 +63,6 @@ class AddFolder extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log('data is', data);
-        console.log('this.context is', this.context);
         this.context.changeAppFolders(data)
         this.props.history.push('/');
       })

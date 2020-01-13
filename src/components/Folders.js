@@ -29,9 +29,6 @@ export default class Folders extends React.Component {
         })}
         <Link to={{
           pathname: "/folders/addfolder",
-          // state: {
-          //   history: this.props.history
-          // }
         }}>
           <button className="add-folder">Add Folder</button>
         </Link>

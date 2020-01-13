@@ -30,7 +30,6 @@ export class App extends Component {
     })
       .then(res => res.json())
       .then(folders => {
-        console.log('folders is', folders);
         this.setState({ folders: folders })
       })
       .catch(e => console.log(e.message));
@@ -53,7 +52,6 @@ export class App extends Component {
   };
 
   deleteNote = noteId => {
-    console.log('noteid is', noteId);
     const url = `${config.API_ENDPOINT}/api/notes/${noteId}`
     fetch(url, {
       method: "DELETE",
@@ -68,7 +66,6 @@ export class App extends Component {
   };
 
   deleteFolder = folderId => {
-    console.log('folderid is', folderId);
     const url = `${config.API_ENDPOINT}/api/folders/${folderId}`
     fetch(url, {
       method: "DELETE",
@@ -97,8 +94,6 @@ export class App extends Component {
   componentDidMount() {
     this.getFolders();
     this.getNotes();
-    console.log('state folders', this.state.folders);
-    console.log('state notes', this.state.notes);
   }
 
   render() {

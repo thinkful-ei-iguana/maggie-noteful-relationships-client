@@ -66,17 +66,17 @@ class AddNote extends Component {
 
   readyInput = e => {
     e.preventDefault();
+    const folderIdValue = (this.state.folderId.value === '') ? this.context.folders[0].id : this.state.folderId.value
     const input = {
-      note_name: `${this.state.name.value}`,
-      content: `${this.state.content.value}`
+      note_name: this.state.name.value,
+      content: this.state.content.value,
+      folder_id: folderIdValue
     };
     this.postNote(input);
-    //   .catch(err => console.error(err));
   };
 
   postNote = input => {
     const inputValue = JSON.stringify(input);
-    console.log(inputValue);
     return fetch(`${config.API_ENDPOINT}/api/notes`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -91,14 +91,12 @@ class AddNote extends Component {
       })
       .then(res => res.json())
       .then(data => {
-        console.log('data is', data);
         this.context.changeAppNotes(data);
         this.props.history.push('/');
       });
   };
 
   render() {
-    console.log('this.props is', this.props);
     return (
       <form
         className="add-note"
@@ -129,10 +127,15 @@ class AddNote extends Component {
               onChange={e => this.setStateContent(e.target.value)}
             />
           </label>
-          <select onChange={e => this.setStateFolderId(e.target.value)}>
+          <select
+            id="assign-to-folder"
+            onChange={e => this.setStateFolderId(e.target.value)}>
             Folder
             {this.context.folders.map(folder => (
-              <option value={folder.id} name={folder.folder_name}>
+              <option
+                key={folder.id}
+                value={folder.id}
+                name={folder.folder_name}>
                 {folder.folder_name}
               </option>
             ))}

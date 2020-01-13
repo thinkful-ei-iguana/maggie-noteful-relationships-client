@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "alias": "noteful-relationships",
+    "name": "noteful-relationships-app",
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "/index.html"
+        }
+    ]
+}

@@ -12,6 +12,7 @@ export default class Folders extends React.Component {
 
     return (
       <div className="Folders">
+        <h2>Folders</h2>
         {this.context.folders.map(folder => {
           return (
             <div key={folder.id}>

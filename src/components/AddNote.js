@@ -104,9 +104,11 @@ class AddNote extends Component {
           this.readyInput(e);
         }}
       >
+        <h2>Create a note below</h2>
+        <h4>(all fields are required)</h4>
         <div className="form-inputs">
           <label htmlFor="note-name">
-            Name this note:
+            Name this note*:
             <input
               type="text"
               name="name"
@@ -114,10 +116,10 @@ class AddNote extends Component {
               required
               onChange={e => this.setStateName(e.target.value)}
             />
-            {this.state.name.touched && <p>"Name field is required"</p>}
+            {/* {this.state.name.touched && <p>"Name field is required"</p>} */}
           </label>
           <label htmlFor="note-content">
-            Note content:
+            Note content*:
             <input
               type="text"
               name="content"
@@ -127,8 +129,10 @@ class AddNote extends Component {
               onChange={e => this.setStateContent(e.target.value)}
             />
           </label>
+          <label id="select-text">Select a folder*: <br /> (if no folders exist, create one first)</label>
           <select
             id="assign-to-folder"
+            required
             onChange={e => this.setStateFolderId(e.target.value)}>
             Folder
             {this.context.folders.map(folder => (

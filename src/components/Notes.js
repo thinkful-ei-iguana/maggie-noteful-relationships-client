@@ -40,6 +40,7 @@ export default class Notes extends React.Component {
   render() {
     return (
       <div>
+        <h2>Notes</h2>
         <section list="true" className="notes-list">
           {this.renderNotes()}
         </section>

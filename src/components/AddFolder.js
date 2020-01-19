@@ -78,11 +78,12 @@ class AddFolder extends Component {
         }}
       >
         <label htmlFor="new-folder">
-          Folder Name:
+          Folder Name*:
           <input
             type="text"
             name="folder"
             id="new-folder"
+            required
             onChange={e => this.settingStateFromFormInput(e.target.value)}
           />
         </label>

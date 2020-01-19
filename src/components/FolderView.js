@@ -44,6 +44,7 @@ export default class FolderView extends Component {
   render() {
     return (
       <div id="folder-container">
+        <h2>Notes</h2>
         <section className="notes-in-folder">
           {this.renderNotes()}
           <div className="folderview-button-container">

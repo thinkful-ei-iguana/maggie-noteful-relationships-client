@@ -75,6 +75,7 @@ export class App extends Component {
     })
       .then(res => {
         this.getFolders();
+        this.getNotes();
       })
       .catch(err => console.log(err.message));
   };
